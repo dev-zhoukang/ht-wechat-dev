@@ -103,7 +103,10 @@
                'opacity': '1',
            },200);
 
-           var node = $('<div>节点</div>');
+           var node = $('<div class="btn-group" data-toggle="buttons"></div>');
+           var btn_1 = $('<label class="btn btn-primary"><input type="radio" name="sex" autocomplete="off">男</label>');
+           var btn_2 = $('<label class="btn btn-primary"><input type="radio" name="sex" autocomplete="off">女</label>')
+           node.append(btn_1).append(btn_2);
            node.css({
                'color': 'red',
                'backgroundColor': 'white',
@@ -116,7 +119,7 @@
                'zIndex': '2',
                'boxShadow': '0 1px 10px black',
            }).hide();
-           $('html').append(node);
+           $('body').append(node);
            node.show();
 
            node.animate({
@@ -129,7 +132,9 @@
                }, 200);
                bg.animate({
                    'opacity': '0',
-               },200);
+               },200, function () {
+                   bg.remove();
+               });
            });
        });
     });
