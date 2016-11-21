@@ -86,58 +86,65 @@
 <script>
     $(function () {
        $('#dataInput-btn-hourse').on('click', function () {
-
-           var bg = $('<div></div>');
-           bg.css({
-              'backgroundColor': 'rgba(0,0,0,.5)',
-               'opacity': '0',
-               'position': 'absolute',
-               'top': '0',
-               'left': 0,
-               'width': '100%',
-               'height': '100%',
-               'zIndex': '2',
-           });
-           $('body').append(bg);
-           bg.animate({
-               'opacity': '1',
-           },200);
-
-           var node = $('<div class="btn-group" data-toggle="buttons"></div>');
-           var btn_1 = $('<label class="btn btn-primary"><input type="radio" name="sex" autocomplete="off">男</label>');
-           var btn_2 = $('<label class="btn btn-primary"><input type="radio" name="sex" autocomplete="off">女</label>')
-           node.append(btn_1).append(btn_2);
-           node.css({
-               'color': 'red',
-               'backgroundColor': 'white',
-               'height': '150px',
-               'width': '100%',
-               'bottom': '-150px',
-               'left': 0,
-               'right': 0,
-               'position': 'fixed',
-               'zIndex': '2',
-               'boxShadow': '0 1px 10px black',
-           }).hide();
-           $('body').append(node);
-           node.show();
-
-           node.animate({
-               'bottom': '0',
-           }, 200);
-
-           bg.on('click', function () {
-               node.animate({
-                   'bottom': '-150px',
-               }, 200);
-               bg.animate({
-                   'opacity': '0',
-               },200, function () {
-                   bg.remove();
-               });
-           });
+           clickSelectHourseType();
        });
     });
+
+    function clickSelectHourseType() {
+        {
+
+            var bg = $('<div></div>');
+            bg.css({
+                'backgroundColor': 'rgba(0,0,0,.5)',
+                'opacity': '0',
+                'position': 'absolute',
+                'top': '0',
+                'left': 0,
+                'width': '100%',
+                'height': '100%',
+                'zIndex': '2',
+            });
+            $('body').append(bg);
+            bg.animate({
+                'opacity': '1',
+            },200);
+
+            var node = $('<div class="btn-group" data-toggle="buttons"></div>');
+            var btn_1 = $('<label class="btn btn-primary"><input type="radio" name="sex" autocomplete="off">男</label>');
+            var btn_2 = $('<label class="btn btn-primary"><input type="radio" name="sex" autocomplete="off">女</label>')
+            node.append(btn_1).append(btn_2);
+            node.css({
+                'color': 'red',
+                'backgroundColor': 'white',
+                'height': '150px',
+                'width': '100%',
+                'bottom': '-150px',
+                'left': 0,
+                'right': 0,
+                'position': 'fixed',
+                'zIndex': '2',
+                'boxShadow': '0 1px 10px black',
+            }).hide();
+            $('body').append(node);
+            node.show();
+
+            node.animate({
+                'bottom': '0',
+            }, 200);
+
+            bg.on('click', function () {
+                node.animate({
+                    'bottom': '-150px',
+                }, 200);
+                bg.animate({
+                    'opacity': '0',
+                },200, function () {
+                    bg.remove();
+                });
+            });
+        }
+    }
+
 </script>
 
 </body>
