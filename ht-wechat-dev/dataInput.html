@@ -122,6 +122,15 @@
            node.animate({
                'bottom': '0',
            }, 200);
+
+           bg.on('click', function () {
+               node.animate({
+                   'bottom': '-150px',
+               }, 200);
+               bg.animate({
+                   'opacity': '0',
+               },200);
+           });
        });
     });
 </script>
