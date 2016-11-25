@@ -10,15 +10,38 @@
     <meta name="format-detection" content="telephone=no">
     <meta content="email=no" name="format-detection">
     <link rel="stylesheet" href="css/bootstrap-css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/login-style.css">
     <title>登录页面</title>
 </head>
 <body>
 
-<!--导航栏-->
-<header id="mynav">
-    <img src="imgs/icon-back.png" alt="返回" onclick="history.go(-1)"/>
-</header>
+    <!--导航栏-->
+    <header id="mynav">
+        <img src="imgs/icon-back.png" alt="返回" onclick="history.go(-1)"/>
+    </header>
+
+    <!--内容-->
+    <div class="login-content">
+        <!--logo-->
+        <div class="logo-container">
+            <img src="imgs/hutao-logo.png" alt="logo">
+        </div>
+
+        <div class="input-container">
+            <input type="tel" class="myinput" placeholder="手机号">
+        </div>
+        <div class="input-container">
+            <input type="password" class="myinput" placeholder="密码">
+        </div>
+        <a href="#" class="btn btn-default btn-block mydonebtn">登录</a>
+        <!--底部注册 找回密码按钮的容器-->
+        <div class="smallbtns-container">
+            <a id="regbtn" class="mysmallbtn" href="login-home.html">注册
+            <a id="forgetbtn" class="mysmallbtn" href="login-home.html">找回密码
+        </div>
+
+    </div>
 
     <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/bootstrap-js/bootstrap.min.js"></script>
