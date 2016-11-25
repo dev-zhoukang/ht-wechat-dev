@@ -121,6 +121,8 @@
 }
 
 #btn-sendcaptcha {
+    display: inline-block;
+    width: 80px;
     float: right;
     font-size: 10px;
     margin-top: 5px;
@@ -128,7 +130,10 @@
     line-height: 32px;
     background-color: gray;
     color: white;
-    display: inline-block;
     border: .5px solid #cccccc;
     border-radius: 5px;
+}
+
+#btn-sendcaptcha:active {
+    background-color: #666666;
 }
