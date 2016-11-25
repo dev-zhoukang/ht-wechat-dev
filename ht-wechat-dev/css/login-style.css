@@ -50,7 +50,7 @@
 /*登录页*/
 .login-content {
     width: 72%;
-    margin: 0 auto;
+    margin: 30px auto;
 }
 
 .logo-container {
@@ -116,6 +116,7 @@
 #input-captcha {
     float: left;
     margin: 0px;
+    width: 120px;
     height: 44px;
 }
 
