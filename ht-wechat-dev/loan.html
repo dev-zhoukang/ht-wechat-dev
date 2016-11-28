@@ -53,7 +53,7 @@
         <div class="loan-tip-imgcontainer">
             <img src="imgs/icon-loan-tip.png" alt="">
         </div>
-        <span class="loan-tip-text">
+        <span id="loan-tip-text" class="loan-tip-text">
             您预借金额10000元, 分12期还款<br />每期还款金额833.54元, 每月1号还款.
         </span>
     </div>
@@ -99,15 +99,31 @@
         // 点击选择分期按钮
         var clickInstalmentBtn = function () {
             var $sheet = $('#actioon-sheet');
+            var $sheetul = $('#actioon-sheet>ul');
+
+            var instalments = ['3期', '6期', '9期', '12期', '14期'];
+
+            var ulHeight = instalments.length*40;
+
+            $sheetul.css('height', ulHeight+'px');
+
+            var list = '';
+            $sheetul.empty();
+            $.each(instalments, function (index, obj) {
+                list += '<li><a onclick="didSelectInstalment($(this))" href="javascript:;">'+obj+'</a></li>';
+            });
+
+            $sheetul.append(list);
 
             $sheet.css('display', 'block');
             $sheet.removeClass('opacity-fade');
-            $('#actioon-sheet>ul').removeClass('slidedown');
+            $sheetul.removeClass('slidedown');
 
             $sheet.addClass('opacity-show');
-            $('#actioon-sheet>ul').addClass('slideup');
+            $sheetul.addClass('slideup');
         };
 
+        // 点击隐藏actionsheet
         var hideActionSheet = function () {
             var $sheet = $('#actioon-sheet');
             var $sheetul = $('#actioon-sheet>ul');
@@ -123,6 +139,14 @@
             }, 200);
         };
 
+        var didSelectInstalment = function (obj) {
+            var text = obj.text();
+            var instalment = text.split('期')[0];
+            var tiptext = '您预借金额';
+            tiptext += '10000元';
+
+            $('#loan-tip-text').text(tiptext);
+        };
     </script>
 
 </body>
