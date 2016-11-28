@@ -9,33 +9,55 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
     <meta content="email=no" name="format-detection">
-    <link rel="stylesheet" href="css/bootstrap-css/bootstrap.min.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/loan-style.css">
     <title>借款填写项目-zk</title>
 </head>
 <body>
 
-    <div>
-        <label for="hos-name">医院名称</label>
-        <input type="button" name="hos-name" id="hos-name" value="医美整形医院" class="loan-input">
+    <!--医院名称-->
+    <div class="loan-row-container border-top">
+        <label class="loan-title" for="hos-name-btn">医院名称</label>
+        <a id="hos-name-btn" class="loan-btn" href="#">医美整形美容医院</a>
     </div>
 
-    <div class="loan-item-container loan-item-container">
-        <div class="input-group">
-            <label class="item-name" for="item-project">项目名称</label>
-            <input type="text" name="project" id="item-project" placeholder="请输入项目名称">
+    <!--医院项目和单价-->
+    <div class="loan-project-container">
+        <div class="loan-row-container border-bottom">
+            <label class="loan-title" for="">医疗项目</label>
+            <input class="loan-btn" type="text" name="hos-project-input" placeholder="医疗项目">
         </div>
-        <div class="input-group">
-            <label class="item-name" for="item-price">项目单价</label>
-            <input type="text" name="project" id="item-price" placeholder="请输入项目名称">
+        <div class="loan-row-container">
+            <label class="loan-title" for="">项目单价</label>
+            <input class="loan-btn" type="tel" name="hos-price" placeholder="请输入项目单价">
         </div>
     </div>
 
+    <!--添加项目btn-->
+    <label class="loan-title" for="">添加项目</label>
+    <a class="load-add-btn" href="" onclick="clickAddProject()"><img src="imgs/icon-plus.png" alt="picture"></a>
+
+    <!--分期数-->
+    <div class="loan-row-container">
+        <label for="" class="loan-title">分期数</label>
+        <a class="loan-btn" href="#">12期</a>
+    </div>
+
+    <!--分期还款提示-->
+    <div class="loan-tip-container clearfix">
+        <div class="loan-tip-imgcontainer">
+            <img src="imgs/icon-loan-tip.png" alt="">
+        </div>
+        <span class="loan-tip-text">
+            您预借金额10000元, 分12期还款<br />每期还款金额833.54元, 每月1号还款.
+        </span>
+    </div>
 
     <script src="js/jquery-1.11.1.min.js"></script>
     <script>
-
+        var clickAddProject = function () {
+            alert('点击添加新项目');
+        };
     </script>
 
 </body>

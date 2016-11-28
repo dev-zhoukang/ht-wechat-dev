@@ -1,23 +1,69 @@
 
-.loan-item-container {
-    background-color: white;
-    min-height: 80px;
-    margin: 0;
-    /*overflow: hidden;*/
+/*一行的内容的容器*/
+.loan-row-container {
+    width: 100%;
+    height: 48px;
+    background: white;
+    overflow: hidden;
 }
 
-.item-name {
-    background-color: red;
-    font-size: 14px;
-    height: 40px;
-    line-height: 40px;
-    margin: 0;
+.loan-title {
+    display: inline-block;
+    color: #535353;
+    line-height: 48px;
+    width: 80px;
+    text-align: center;
+    margin-left: 10px;
 }
 
-.loan-item-container input {
-    background-color: green;
-    font-size: 13px;
-    line-height: 40px;
-    padding: 0;
-    margin: 0;
+.loan-row-container .loan-btn {
+    display: inline-block;
+    color: #bbbbbb;
+    line-height: 48px;
+}
+
+/*项目名称和单价*/
+.loan-project-container {
+    margin-top: 10px;
+}
+
+.load-add-btn {
+    display: inline-block;
+    width: 18px;
+    text-align: center;
+    vertical-align: middle;
+    margin-left: -10px;
+}
+
+.load-add-btn img {
+    width: 18px;
+    height: 18px;
+}
+
+/*x分期提示*/
+.loan-tip-container {
+    width: 75%;
+    height: 80px;
+    margin: 0 auto;
+}
+
+.loan-tip-container .loan-tip-imgcontainer {
+    display: inline-block;
+    height: 100%;
+    width: 50px;
+    padding-top: 23px;
+
+    float: left;
+}
+
+.loan-tip-container img {
+    width: 30px;
+    height: 34px;
+}
+
+.loan-tip-container span {
+    display: inline-block;
+    line-height: 18px;
+    margin-top: 20px;
+    color: #bbb;
 }
