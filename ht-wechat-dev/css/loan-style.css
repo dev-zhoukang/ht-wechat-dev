@@ -1,0 +1,23 @@
+
+.loan-item-container {
+    background-color: white;
+    min-height: 80px;
+    margin: 0;
+    /*overflow: hidden;*/
+}
+
+.item-name {
+    background-color: red;
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0;
+}
+
+.loan-item-container input {
+    background-color: green;
+    font-size: 13px;
+    line-height: 40px;
+    padding: 0;
+    margin: 0;
+}

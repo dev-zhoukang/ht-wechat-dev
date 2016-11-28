@@ -2,15 +2,23 @@
 *  全局黄色 #fadb2c
 */
 
-/*设置全局样式*/
-body, html {
+/*通用配置*/
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent; /*清除点击默认的高亮效果 加颜色#ddd可测试一下*/
+    -webkit-box-sizing: border-box; /*以border开始计算宽度*/
+}
+
+body {
+    font-family: "Microsoft YaHei", sans-serif;
+    color: #535353;
     width: 100%;
     height: 100%;
     max-width: 768px;
     margin: 0 auto;
     background: #F4F4F6;
     font-size: 14px;
-    color: #535353;
 }
 
 a {
@@ -18,7 +26,23 @@ a {
     color: #535353;
 }
 
-input {
+ul {
+    list-style: none;
+}
+
+input, textarea {
     border: none;
-    outline: medium;
+    resize: none; /*不让他伸缩*/
+    outline: none; /*清除默认显示选中框效果*/
+    -webkit-appearance: none; /*清除有些输入框的默认的立体效果*/
+}
+
+/* 清除浮动 */
+.clearfix::before, .clearfix::after {
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    clear: both;
 }
