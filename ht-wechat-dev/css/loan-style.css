@@ -12,8 +12,9 @@
     color: #535353;
     line-height: 48px;
     width: 80px;
-    text-align: center;
+    text-align: right;
     margin-left: 10px;
+    padding-right: 10px;
 }
 
 .loan-row-container .loan-btn {
