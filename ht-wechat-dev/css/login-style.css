@@ -28,25 +28,6 @@
     background-size: 100% 100%;
 }
 
-.bottom-btn {
-    color: #535353;
-    font-size: 16px;
-    position: fixed;
-    width: 80%;
-    height: 48px;
-    bottom: 20px;
-    line-height: 36px;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-    border: none;
-    max-width: 768px;
-}
-
-.bottom-btn:hover {
-    background-color: rgba(255,255,255,.5);
-}
-
 /*登录页*/
 .login-content {
     width: 72%;
@@ -136,4 +117,13 @@
 
 #btn-sendcaptcha:active {
     background-color: #666666;
+}
+
+/*底部按钮*/
+.bottom-btn {
+    background: rgba(255,255,255,.7);
+}
+
+.bottom-btn:hover {
+    background: rgba(255,255,255,.6);
 }

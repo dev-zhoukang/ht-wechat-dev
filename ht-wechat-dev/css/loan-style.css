@@ -42,7 +42,7 @@
 
 /*x分期提示*/
 .loan-tip-container {
-    width: 75%;
+    width: 78%;
     height: 80px;
     margin: 0 auto;
 }
@@ -66,4 +66,9 @@
     line-height: 18px;
     margin-top: 20px;
     color: #bbb;
+}
+
+/*底部按钮*/
+.bottom-btn {
+    background: #fadb2c;
 }
