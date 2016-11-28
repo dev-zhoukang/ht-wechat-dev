@@ -10,7 +10,7 @@
     -webkit-box-sizing: border-box; /*以border开始计算宽度*/
 }
 
-body {
+html, body {
     font-family: "Microsoft YaHei", sans-serif;
     color: #535353;
     width: 100%;
