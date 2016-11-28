@@ -26,11 +26,11 @@
 
         <div id="loan-container-0" class="loan-project-container">
             <div class="loan-row-container border-bottom">
-                <label class="loan-title" for="">医疗项目</label>
+                <label class="loan-title">医疗项目</label>
                 <input class="loan-btn" type="text" name="hos-project-input" placeholder="医疗项目">
             </div>
             <div class="loan-row-container">
-                <label class="loan-title" for="">项目单价</label>
+                <label class="loan-title">项目单价</label>
                 <input class="loan-btn" type="tel" name="hos-price" placeholder="请输入项目单价">
             </div>
         </div>
@@ -39,12 +39,12 @@
 
 
     <!--添加项目btn-->
-    <label class="loan-title" for="">添加项目</label>
+    <label class="loan-title">添加项目</label>
     <a class="load-add-btn" href="javascript:;" onclick="clickAddProject()"><img src="imgs/icon-plus.png" alt="picture"></a>
 
     <!--分期数-->
     <div class="loan-row-container">
-        <label for="" class="loan-title">分期数</label>
+        <label class="loan-title">分期数</label>
         <a class="loan-btn" href="#">12期</a>
     </div>
 
@@ -74,8 +74,10 @@
                 loanContainer += '<input class="loan-btn" type="tel" name="hos-price" placeholder="请输入项目单价"></div></div>';
 
                 $('#loan-project-group').append(loanContainer);
-                $("#loan-container-"+i+"").hide();
-                $("#loan-container-"+i+"").show(200);
+
+                var $element = $("#loan-container-"+i+"");
+                $element.hide();
+                $element.show(200);
                 i ++;
             }
             else {
