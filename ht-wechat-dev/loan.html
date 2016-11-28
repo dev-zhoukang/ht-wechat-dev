@@ -22,16 +22,21 @@
     </div>
 
     <!--医院项目和单价-->
-    <div class="loan-project-container">
-        <div class="loan-row-container border-bottom">
-            <label class="loan-title" for="">医疗项目</label>
-            <input class="loan-btn" type="text" name="hos-project-input" placeholder="医疗项目">
+    <div id="loan-project-group">
+
+        <div id="loan-container-0" class="loan-project-container">
+            <div class="loan-row-container border-bottom">
+                <label class="loan-title" for="">医疗项目</label>
+                <input class="loan-btn" type="text" name="hos-project-input" placeholder="医疗项目">
+            </div>
+            <div class="loan-row-container">
+                <label class="loan-title" for="">项目单价</label>
+                <input class="loan-btn" type="tel" name="hos-price" placeholder="请输入项目单价">
+            </div>
         </div>
-        <div class="loan-row-container">
-            <label class="loan-title" for="">项目单价</label>
-            <input class="loan-btn" type="tel" name="hos-price" placeholder="请输入项目单价">
-        </div>
+
     </div>
+
 
     <!--添加项目btn-->
     <label class="loan-title" for="">添加项目</label>
@@ -58,8 +63,24 @@
 
     <script src="js/jquery-1.11.1.min.js"></script>
     <script>
+
+        var i = 1;
         var clickAddProject = function () {
-            alert('点击添加新项目');
+
+            if (i <= 4) {
+                var loanContainer = '<div id="loan-container-'+i+'" class="loan-project-container"><div class="loan-row-container border-bottom"><label class="loan-title" for="">医疗项目</label>';
+                loanContainer += '<input class="loan-btn" type="text" name="hos-project-input" placeholder="医疗项目"></div>';
+                loanContainer += '<div class="loan-row-container"><label class="loan-title" for="">项目单价</label>';
+                loanContainer += '<input class="loan-btn" type="tel" name="hos-price" placeholder="请输入项目单价"></div></div>';
+
+                $('#loan-project-group').append(loanContainer);
+                $("#loan-container-"+i+"").hide();
+                $("#loan-container-"+i+"").show(200);
+                i ++;
+            }
+            else {
+                alert('最多只能添加5个项目');
+            }
         };
     </script>
 
