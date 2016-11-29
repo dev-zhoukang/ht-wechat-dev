@@ -11,32 +11,28 @@
     <meta content="email=no" name="format-detection">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/auth-style.css">
-    <title>实名认证-zk</title>
+    <title>学校信息-zk</title>
 </head>
 <body>
 
     <div class="auth-header">
         <div class="img-container">
-            <img src="imgs/icon-authInfo-realname.png" alt="" width="53" height="36">
+            <img src="imgs/icon-authInfo-school.png" alt="" width="45" height="36">
         </div>
-        <p>实名是一切信任的基础</p>
+        <p>无论毕业与否 学生时代都有价值</p>
     </div>
 
-    <div class="loan-row-container border-bottom clearfix">
-        <label for="" class="loan-title">身份证</label>
-        <a href="javascript:;" class="loan-input">请点击进行身份证信息录入</a>
+    <div class="loan-row-container border-bottom">
+        <label for="" class="loan-title">学校名称</label>
+        <input type="text" class="loan-input" placeholder="所在学校的名字">
     </div>
     <div class="loan-row-container border-bottom">
-        <label for="" class="loan-title">银行卡</label>
-        <input class="loan-input" type="tel" placeholder="请录入银行卡信息">
-    </div>
-    <div class="loan-row-container border-bottom">
-        <label for="" class="loan-title">常用地址</label>
-        <input class="loan-input" type="tel" placeholder="请填写常用地址">
+        <label for="" class="loan-title">学历</label>
+        <input type="text" class="loan-input" placeholder="您的最高学历">
     </div>
     <div class="loan-row-container">
-        <label for="" class="loan-title">婚姻状况</label>
-        <input class="loan-input" type="tel" placeholder="请填写婚姻状况">
+        <label for="" class="loan-title">专业名称</label>
+        <input type="text" class="loan-input" placeholder="您所学专业的名称">
     </div>
 
     <!--底部客服和按钮-->
@@ -50,6 +46,7 @@
 
     <script src="js/jquery-1.11.1.min.js"></script>
     <script>
+
         <!--点击完成按钮-->
         function clickBottomBtn() {
             alert('点击完成');

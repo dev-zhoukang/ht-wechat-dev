@@ -18,7 +18,7 @@
     <!--医院名称-->
     <div class="loan-row-container border-top">
         <label class="loan-title" for="hos-name-btn">医院名称</label>
-        <a id="hos-name-btn" class="loan-btn" href="#">医美整形美容医院</a>
+        <a id="hos-name-btn" class="loan-input" href="#">医美整形美容医院</a>
     </div>
 
     <!--医院项目和单价-->
@@ -27,11 +27,11 @@
         <div id="loan-container-0" class="loan-project-container">
             <div class="loan-row-container border-bottom">
                 <label class="loan-title">医疗项目</label>
-                <input class="loan-btn" type="text" name="hos-project-input" placeholder="医疗项目">
+                <input class="loan-input" type="text" name="hos-project-input" placeholder="医疗项目">
             </div>
             <div class="loan-row-container">
                 <label class="loan-title">项目单价</label>
-                <input class="loan-btn" type="tel" name="hos-price" placeholder="请输入项目单价">
+                <input class="loan-input" type="tel" name="hos-price" placeholder="请输入项目单价">
             </div>
         </div>
 
@@ -44,7 +44,7 @@
     <!--分期数-->
     <div class="loan-row-container">
         <label class="loan-title">分期数</label>
-        <a class="loan-btn" href="javascript:;" onclick="clickInstalmentBtn()">12期</a>
+        <a class="loan-input" href="javascript:;" onclick="clickInstalmentBtn()">12期</a>
     </div>
 
     <!--分期还款提示-->
@@ -57,8 +57,14 @@
         </span>
     </div>
 
-    <!--底部按钮-->
-    <a class="bottom-btn" href="">下一步</a>
+    <!--底部客服和按钮-->
+    <div class="bottom-container">
+        <div class="service-container">
+            <em></em>
+            <p onclick="clickServiceBtn()">客服电话</p>
+        </div>
+        <a href="javascript:;" onclick="clickBottomBtn()" class="bottom-btn">完成</a>
+    </div>
 
     <!--选择分期数控件-->
     <div id="actioon-sheet" class="sheet-container" onclick="hideActionSheet()">
@@ -73,15 +79,24 @@
     <script src="js/jquery-1.11.1.min.js"></script>
     <script>
 
+        <!--点击完成按钮-->
+        function clickBottomBtn() {
+            alert('点击完成');
+        }
+
+        function clickServiceBtn() {
+            alert('点击客服');
+        }
+
         // 点击添加项目
         var i = 1;
         var clickAddProject = function () {
 
             if (i <= 4) {
                 var loanContainer = '<div id="loan-container-'+i+'" class="loan-project-container"><div class="loan-row-container border-bottom"><label class="loan-title" for="">医疗项目</label>';
-                loanContainer += '<input class="loan-btn" type="text" name="hos-project-input" placeholder="医疗项目"></div>';
+                loanContainer += '<input class="loan-input" type="text" name="hos-project-input" placeholder="医疗项目"></div>';
                 loanContainer += '<div class="loan-row-container"><label class="loan-title" for="">项目单价</label>';
-                loanContainer += '<input class="loan-btn" type="tel" name="hos-price" placeholder="请输入项目单价"></div></div>';
+                loanContainer += '<input class="loan-input" type="tel" name="hos-price" placeholder="请输入项目单价"></div></div>';
 
                 $('#loan-project-group').append(loanContainer);
 

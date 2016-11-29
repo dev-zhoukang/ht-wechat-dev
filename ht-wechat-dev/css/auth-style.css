@@ -9,7 +9,7 @@
     width: 80px;
     height: 100px;
     margin: 0 auto;
-    padding-top: 50px;
+    padding-top: 44px;
 }
 
 .auth-header .img-container img {
@@ -19,4 +19,40 @@
 
 .auth-header p {
     text-align: center;
+}
+
+/*底部客服电话和按钮*/
+.bottom-container {
+    width: 100%;
+    height: 100px;
+    margin: 0 auto;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.bottom-container .service-container {
+    width: 100%;
+    height: 32px;
+    text-align: center;
+    padding-top: 6px;
+}
+
+.bottom-container .service-container em {
+    display: inline-block;
+    width: 21px;
+    height: 20px;
+    background: red;
+    background: url("../imgs/icon-service.png") no-repeat;
+    background-size: 21px 20px;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+.bottom-container .service-container p {
+    display: inline-block;
+    font-size: 10px;
+    color: #bbb;
+    vertical-align: middle;
 }

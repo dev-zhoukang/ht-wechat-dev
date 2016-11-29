@@ -11,32 +11,36 @@
     <meta content="email=no" name="format-detection">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/auth-style.css">
-    <title>实名认证-zk</title>
+    <title>工作信息-zk</title>
 </head>
 <body>
 
     <div class="auth-header">
         <div class="img-container">
-            <img src="imgs/icon-authInfo-realname.png" alt="" width="53" height="36">
+            <img src="imgs/icon-authInfo-work.png" alt="" width="48" height="40">
         </div>
-        <p>实名是一切信任的基础</p>
+        <p>工作的回报不止是工作还有社会价值</p>
     </div>
 
-    <div class="loan-row-container border-bottom clearfix">
-        <label for="" class="loan-title">身份证</label>
-        <a href="javascript:;" class="loan-input">请点击进行身份证信息录入</a>
+    <div class="loan-row-container border-bottom">
+        <label for="" class="loan-title">单位名称</label>
+        <input type="text" class="loan-input" placeholder="所在公司 单位名称">
     </div>
     <div class="loan-row-container border-bottom">
-        <label for="" class="loan-title">银行卡</label>
-        <input class="loan-input" type="tel" placeholder="请录入银行卡信息">
+        <label for="" class="loan-title">单位电话</label>
+        <input type="tel" class="loan-input" placeholder="公司座机电话">
     </div>
     <div class="loan-row-container border-bottom">
-        <label for="" class="loan-title">常用地址</label>
-        <input class="loan-input" type="tel" placeholder="请填写常用地址">
+        <label for="" class="loan-title">公司地址</label>
+        <input type="text" class="loan-input" placeholder="公司的办公地址">
+    </div>
+    <div class="loan-row-container border-bottom">
+        <label for="" class="loan-title">职位</label>
+        <input type="text" class="loan-input" placeholder="所在公司职位">
     </div>
     <div class="loan-row-container">
-        <label for="" class="loan-title">婚姻状况</label>
-        <input class="loan-input" type="tel" placeholder="请填写婚姻状况">
+        <label for="" class="loan-title">月收入</label>
+        <input type="text" class="loan-input" placeholder="您的月收入金额">
     </div>
 
     <!--底部客服和按钮-->
@@ -50,6 +54,7 @@
 
     <script src="js/jquery-1.11.1.min.js"></script>
     <script>
+
         <!--点击完成按钮-->
         function clickBottomBtn() {
             alert('点击完成');
@@ -58,6 +63,7 @@
         function clickServiceBtn() {
             alert('点击客服');
         }
+
 
     </script>
 

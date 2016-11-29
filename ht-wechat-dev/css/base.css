@@ -60,7 +60,7 @@ input, textarea {
 
 /*设置border的公共类*/
 .border-bottom {
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #eee;
 }
 
 .border-top {
@@ -73,10 +73,9 @@ input, textarea {
     text-align: center;
     color: #535353;
     font-size: 16px;
-    width: 80%;
     height: 48px;
     line-height: 48px;
-    margin: 0 auto;
+    margin: 0 20px;
     border: none;
     max-width: 768px;
     border-radius: 7px;
@@ -111,11 +110,12 @@ input, textarea {
     position: absolute;
 }
 
-.loan-row-container .loan-btn {
+.loan-row-container .loan-input {
     font-size: 13px;
     display: inline-block;
     color: #bbbbbb;
     line-height: 48px;
     width: 100%;
     padding-left: 90px;
+    padding-right: 30px;
 }
