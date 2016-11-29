@@ -20,11 +20,45 @@
         <label>
             请提供更多材料的图片有助于提高借款成功率，如淘宝的收货地址截图、芝麻信用评分截图、房产证、学生证、社保卡、公积金联名卡、驾照等照片。
         </label>
-
     </header>
+
+    <main>
+        <div class="item-container">
+            <div class="img-container">
+                <img src="imgs/icon-header-bg.png" alt="">
+            </div>
+        </div>
+        <div class="item-container">
+            <div class="img-container" onclick="clickAddImgBtn()">
+                <img class="icon-plus" src="imgs/icon-addi-plus.png" alt="">
+                <span>上传图片</span>
+            </div>
+        </div>
+    </main>
+
+    <!--底部客服和按钮-->
+    <div class="bottom-container">
+        <div class="service-container">
+            <em></em>
+            <p onclick="clickServiceBtn()">客服电话</p>
+        </div>
+        <a href="javascript:;" onclick="clickBottomBtn()" class="bottom-btn">完成</a>
+    </div>
 
     <script src="js/jquery-1.11.1.min.js"></script>
     <script>
+
+        function clickAddImgBtn() {
+            alert('点击添加图片');
+        }
+
+        function clickServiceBtn() {
+            alert('点击客服电话');
+        };
+
+        function clickBottomBtn() {
+            alert('点击完成');
+        };
 
     </script>
 
