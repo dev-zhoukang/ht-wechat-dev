@@ -25,7 +25,7 @@
         </div>
 
         <ul id="pagecontrol">
-            <li></li>
+            <li class="cur"></li>
             <li></li>
             <li></li>
         </ul>
@@ -35,20 +35,20 @@
     <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/hhSwipe.js"></script>
     <script>
-        var bullets = document.getElementById('pagecontrol').getElementsByTagName('li');
 
-        Swipe(document.getElementById('myswipe'), {
-            auto: 1000,
+        var bullets = $('#pagecontrol li');
+        Swipe($('#myswipe').get(0), {
+            auto: 1500,
             continuous: true,
-            disableScroll:true,
-            callback: function(pos) {
+            disableScroll: false,
+            callback: function (position) {
                 var i = bullets.length;
-                while (i--) {
+                while (i --) {
                     bullets[i].className = ' ';
                 }
-                bullets[pos].className = 'cur';
+                bullets[position].className = 'cur';
             }
-        })
+        });
     </script>
 
 </body>
