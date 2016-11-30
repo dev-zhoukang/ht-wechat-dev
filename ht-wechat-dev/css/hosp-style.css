@@ -1,4 +1,5 @@
 
+/*头部轮播图*/
 header {
     width: 100%;
     height: 180px;
@@ -47,11 +48,43 @@ header ul li {
     background: #ccc;
 
     margin-left: 7px;
-
     float: left;
 }
 
 header ul li.cur {
     background: white;
+}
+
+/*详情内容*/
+.hosp-detail-container {
+    width: 100%;
+    padding-bottom: 120px;
+}
+
+.hosp-row-container {
+    width: 100%;
+    height: auto;
+    min-height: 48px;
+    background: white;
+    position: relative;
+}
+
+.hosp-row-container .img-container {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    text-align: center;
+    padding-top: 12px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hosp-row-container .text-container {
+    display: block;
+    width: 100%;
+    line-height: 20px;
+    padding: 15px 20px 15px 50px;
 }
 
