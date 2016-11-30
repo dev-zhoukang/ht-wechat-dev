@@ -16,8 +16,40 @@
 <body>
 
     <header>
+        <div class="img-container-group" id="myswipe">
+            <div class="img-container">
+                <div><a href="javascript:;"><img src="imgs/banner0.jpg" alt=""></a></div>
+                <div><a href="javascript:;"><img src="imgs/banner1.jpg" alt=""></a></div>
+                <div><a href="javascript:;"><img src="imgs/banner2.jpg" alt=""></a></div>
+            </div>
+        </div>
+
+        <ul id="pagecontrol">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
 
     </header>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/hhSwipe.js"></script>
+    <script>
+        var bullets = document.getElementById('pagecontrol').getElementsByTagName('li');
+
+        Swipe(document.getElementById('myswipe'), {
+            auto: 1000,
+            continuous: true,
+            disableScroll:true,
+            callback: function(pos) {
+                var i = bullets.length;
+                while (i--) {
+                    bullets[i].className = ' ';
+                }
+                bullets[pos].className = 'cur';
+            }
+        })
+    </script>
 
 </body>
 </html>
