@@ -1,4 +1,6 @@
 
+/************************ 医院详情页面 ***************************/
+
 /*头部轮播图*/
 header {
     width: 100%;
@@ -87,4 +89,75 @@ header ul li.cur {
     line-height: 20px;
     padding: 15px 20px 15px 50px;
 }
+
+/************************ 医院搜索页面 ***************************/
+.search-container {
+    margin-top: 10px;
+    width: 100%;
+    height: 64px;
+    position: relative;
+}
+
+.search-container .input-container {
+    width: 100%;
+    padding: 10px 85px 10px 10px;
+}
+
+.search-container .input-container input {
+    display: block;
+    height: 44px;
+    width: 100%;
+    padding: 0 10px;
+
+    border-radius: 7px;
+    border: 1px solid #e0e0e0;
+    color: #535353;
+}
+
+.search-container a {
+    display: block;
+    background: #fadb2c;
+    text-align: center;
+    border-radius: 7px;
+
+    position: absolute;
+    width: 65px;
+    height: 44px;
+    line-height: 44px;
+    top: 10px;
+    right: 10px;
+}
+
+/*展示医院*/
+
+ul {
+    margin: 0 10px;
+}
+
+ul li {
+    width: 100%;
+    height: 65px;
+    padding: 10px;
+}
+
+ul li p {
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+ul li p.text-title {
+    line-height: 20px;
+    font-size: 14px;
+    color: #535353;
+}
+
+ul li p.text-address {
+    line-height: 20px;
+    font-size: 11px;
+    color: #aaaaaa;
+}
+
+
 
