@@ -41,16 +41,47 @@
 
         <!--注册协议容器-->
         <div class="protocol-container">
-            <input type="checkbox" name="procotol"><a href="#">我同意胡桃钱包用户注册协议</a>
+            <span checked="checked" class="protocol-select-state" onclick="changeSelectState($(this))"></span>
+            <a href="#">我同意胡桃钱包用户注册协议</a>
         </div>
 
-        <a href="#" class="btn btn-default btn-block mydonebtn">完成</a>
-
+        <a id="done-btn" href="javascript:;" onclick="doneBtnClick($(this))" class="mydonebtn normal">完成</a>
 
     </div>
 
     <script src="js/jquery-1.11.1.min.js"></script>
     <script>
+
+        // 点击确定按钮
+        function doneBtnClick($this) {
+            if ($this.css('opacity') != '1') {
+                return false;
+            }
+            alert('点击确定按钮');
+        }
+
+        // 改变选择状态
+        function changeSelectState($this) {
+
+            var checked = $this.attr('checked');
+            var $doneBtn = $('#done-btn');
+
+            if (checked) {
+                $this.removeAttr('checked');
+                $this.css('backgroundImage', 'url("imgs/icon-login-unselect.png")');
+                $doneBtn.removeClass('normal');
+                $doneBtn.addClass('disabled');
+            }
+            else {
+                $this.attr({
+                   'checked':'checked',
+                });
+                $this.css('backgroundImage', 'url("imgs/icon-login-select.png")');
+                $doneBtn.removeClass('disabled');
+                $doneBtn.addClass('normal');
+            }
+        }
+
         // 发送验证码
         function sendCaptcha() {
             console.log('发送验证码');

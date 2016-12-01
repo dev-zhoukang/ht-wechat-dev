@@ -68,13 +68,21 @@
     background: #fadb2c;
 }
 
+.normal {
+   opacity: 1;
+}
+
+.disabled {
+    opacity: .4;
+}
+
 .smallbtns-container {
     margin: 12px 5px;
     height: 30px;
 }
 
 .mysmallbtn {
-    font-size: .9rem;
+    font-size: 13px;
 }
 
 #regbtn {
@@ -85,15 +93,26 @@
     float: right;
 }
 
+/*注册页面协议*/
 .protocol-container {
-    height: 25px;
+    height: 27px;
     font-size: 11px;
     text-align: center;
 }
 
-.protocol-container input[type=checkbox] {
-    margin: 5px;
+.protocol-container .protocol-select-state {
+    background: url("../imgs/icon-login-select.png");
+    background-size: 18px 18px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
     vertical-align: middle;
+}
+
+.protocol-container a {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 25px;
 }
 
 #input-captcha {
@@ -113,7 +132,7 @@
     line-height: 32px;
     background-color: gray;
     color: white;
-    border: .5px solid #cccccc;
+    border: 1px solid #cccccc;
     border-radius: 5px;
 }
 
