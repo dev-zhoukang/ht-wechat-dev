@@ -17,11 +17,39 @@
 
     <div class="view-container">
         <p class="scan-title">扫描身份证正反面照片</p>
-        <div class="scan-small-box top-left"></div>
-        <div class="scan-small-box top-right"></div>
+        <div class="clearfix">
+            <div class="small-box-container">
+                <div class="small-box top-left">
+                </div>
+            </div>
+            <div class="small-box-container">
+                <div class="small-box top-right">
+                </div>
+            </div>
+        </div>
         <p class="scan-title">拍摄手持身份证照片</p>
-        <div class="scan-big-box"></div>
+        <div class="big-box"></div>
     </div>
+
+    <!--底部客服和按钮-->
+    <div class="bottom-container">
+        <div class="service-container">
+            <em></em>
+            <p onclick="clickServiceBtn()">客服电话</p>
+        </div>
+        <a href="javascript:;" onclick="clickBottomBtn()" class="bottom-btn">完成</a>
+    </div>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        function clickServiceBtn() {
+            alert('点击客服电话');
+        };
+
+        function clickBottomBtn() {
+            alert('点击完成');
+        };
+    </script>
 
 </body>
 </html>
