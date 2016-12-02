@@ -57,6 +57,7 @@
     </div>
 
     <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
     <script src="js/base.js"></script>
     <script>
 
@@ -70,34 +71,95 @@
             addImageToContainer(this, $toprightContainer);
         });
 
+        $('#file-hold').on('change',function () {
+            var $bottomContainer = $('.big-box');
+            addImageToContainer(this, $bottomContainer);
+        });
+
         function addImageToContainer(input, $container) {
             var objUrl = getObjectURL(input.files[0]);
             if (objUrl) {
-                $container.empty();
-                var img = '<img class="small-pic" src="'+objUrl+'" />'
+                var img = '<img class="small-pic" src="'+objUrl+'" />';
+                $container.css({
+                    'border': '0 none',
+                });
                 $container.append(img);
             }
         }
 
-        $('#file-hold').on('change',function () {
-            var $bottomContainer = $('.big-box');
-            var myclass = $bottomContainer.attr('class');
-
-            var objUrl = getObjectURL(this.files[0]);
-            if (objUrl) {
-                $(''+myclass+' .hint-container').remove();
-                var img = '<img class="small-pic" src="'+objUrl+'" />'
-                $bottomContainer.append(img);
-            }
-        });
-
         function clickServiceBtn() {
             alert('点击客服电话');
-        };
+        }
+
+        // 开始上传
+        var uploadingArray = [];
 
         function clickBottomBtn() {
-            alert('点击完成');
-        };
+            var idArray = ['file-front', 'file-back', 'file-hold'];
+            uploadingArray = idArray;
+
+            // 请求腾讯云签名
+            start(uploadingArray[0]);
+        }
+
+        function start(fileID) {
+
+            if (!uploadingArray.length) {
+                return;
+            }
+
+            requestSignature(function (signData) {
+                var sign = signData.p.sign;
+                var cosPath = signData.p.cosPath;
+
+                uploadImage(cosPath, sign, fileID);
+            });
+        }
+
+        function uploadImage(path, sign, fileID) {
+
+            var url = path + '?sign=' + sign;
+            var formData = new FormData();
+            formData.append('op', 'upload');
+            formData.append('fileContent', $('#'+fileID+'').get(0).files[0]);
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: formData,
+                processData : false,
+                contentType : false,
+                success: function (data) {
+                    console.log('上传成功');
+                    uploadingArray.splice(0, 1);
+                    start(uploadingArray[0]);
+                },
+                error: function (data) {
+                    console.log('上传出错');
+                }
+            });
+        }
+
+        function requestSignature(completeHandle) {
+            $.ajax({
+                url: baseUrl+'credit/queryCosSign',
+                type: 'POST',
+                data: {
+                    login_uid: $.cookie('login_uid'),
+                    session_key: $.cookie('session_key'),
+                    device_id: '0',
+                    platform: '2',
+                    client_version: 0,
+                },
+                success: function(data){
+                    console.log('获取签名成功');
+                    completeHandle(data);
+                },
+                error: function(data){
+                    console.log('获取签名失败');
+                }
+            })
+        }
+
     </script>
 
 </body>
