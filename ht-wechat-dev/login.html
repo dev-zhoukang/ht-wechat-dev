@@ -60,16 +60,27 @@
                 console.log(data);
                 if (data.c != 200) {
 
-                    var $errorHint = $('#error-hint');
+                    showErrorHint();
 
-                    $errorHint.css('display', 'block').hide();
-                    $errorHint.html(data.h);
-                    $errorHint.show(100);
                     return true;
                 }
+
+                hideErrorHint();
                 $.cookie('session_key', data.p.session_key);
                 $.cookie('login_uid', data.p.login_uid);
             });
+        }
+
+        function showErrorHint() {
+            var $errorHint = $('#error-hint');
+            $errorHint.css('display', 'block').hide();
+            $errorHint.html(data.h);
+            $errorHint.show(100);
+        }
+
+        function hideErrorHint() {
+            var $errorHint = $('#error-hint');
+            $errorHint.hide(100);
         }
 
     </script>
