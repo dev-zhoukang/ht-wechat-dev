@@ -90,10 +90,11 @@ input, textarea {
     font-size: 13px;
     display: inline-block;
     color: #bbbbbb;
-    line-height: 48px;
+    line-height: 20px;
     width: 100%;
     padding-left: 90px;
     padding-right: 30px;
+    margin-top: 14px;
 }
 
 /*底部客服电话和按钮*/
