@@ -62,30 +62,30 @@
 
         $('#file-front').on('change',function () {
             var $topLeftContainer = $('.small-box-container .top-left');
-            var objUrl = getObjectURL(this.files[0]);
-            if (objUrl) {
-                $topLeftContainer.empty();
-                var img = '<img class="small-pic" src="'+objUrl+'" />'
-                $topLeftContainer.append(img);
-            }
+            addImageToContainer(this, $topLeftContainer);
         });
 
         $('#file-back').on('change',function () {
             var $toprightContainer = $('.small-box-container .top-right');
-            var objUrl = getObjectURL(this.files[0]);
-            if (objUrl) {
-                $toprightContainer.empty();
-                var img = '<img class="small-pic" src="'+objUrl+'" />'
-                $toprightContainer.append(img);
-            }
+            addImageToContainer(this, $toprightContainer);
         });
+
+        function addImageToContainer(input, $container) {
+            var objUrl = getObjectURL(input.files[0]);
+            if (objUrl) {
+                $container.empty();
+                var img = '<img class="small-pic" src="'+objUrl+'" />'
+                $container.append(img);
+            }
+        }
 
         $('#file-hold').on('change',function () {
             var $bottomContainer = $('.big-box');
+            var myclass = $bottomContainer.attr('class');
+
             var objUrl = getObjectURL(this.files[0]);
             if (objUrl) {
-
-                $('.big-box .hint-container').remove();
+                $(''+myclass+' .hint-container').remove();
                 var img = '<img class="small-pic" src="'+objUrl+'" />'
                 $bottomContainer.append(img);
             }
