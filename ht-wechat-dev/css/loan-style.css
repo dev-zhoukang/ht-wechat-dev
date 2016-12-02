@@ -28,7 +28,7 @@
 
 /*x分期提示*/
 .loan-tip-container {
-    width: 78%;
+    width: 80%;
     height: 80px;
     margin: 0 auto;
 }
@@ -36,7 +36,7 @@
 .loan-tip-container .loan-tip-imgcontainer {
     display: inline-block;
     height: 100%;
-    width: 50px;
+    width: 18%;
     padding-top: 23px;
 
     float: left;
@@ -48,6 +48,7 @@
 }
 
 .loan-tip-container span {
+    width: 80%;
     display: inline-block;
     line-height: 18px;
     margin-top: 20px;
@@ -83,8 +84,8 @@
 
 .sheet-container ul li {
     width: 100%;
-    height: 40px;
-    line-height: 40px;
+    height: 44px;
+    line-height: 44px;
     text-align: center;
     border-bottom: 1px solid #e0e0e0;
 }

@@ -31,7 +31,7 @@
             </div>
             <div class="loan-row-container">
                 <label class="loan-title">项目单价</label>
-                <input class="loan-input" type="tel" name="hos-price" placeholder="请输入项目单价">
+                <input id="input-money-0" class="loan-input" type="tel" name="hos-price" placeholder="请输入项目单价">
             </div>
         </div>
 
@@ -79,6 +79,23 @@
     <script src="js/jquery-1.11.1.min.js"></script>
     <script>
 
+        function calculateTotalMoney() {
+            var $inputs = $('input[type="tel"]');
+            $inputs.on('input propertychange', function () {
+
+                var total = 0;
+                $.each($inputs, function (index, obj) {
+                    var num = parseInt($(obj).val());
+                    if (isNaN(num)) {
+                        return true;
+                    }
+                    total += num;
+                });
+                console.log(total);
+            })
+        }
+        calculateTotalMoney();
+
         <!--点击完成按钮-->
         function clickBottomBtn() {
             alert('点击完成');
@@ -104,6 +121,7 @@
                 $element.hide();
                 $element.show(200);
                 i ++;
+                calculateTotalMoney();
             }
             else {
                 alert('最多只能添加5个项目');
@@ -117,7 +135,7 @@
 
             var instalments = ['3期', '6期', '9期', '12期', '14期'];
 
-            var ulHeight = instalments.length*40;
+            var ulHeight = instalments.length*44;
 
             $sheetul.css('height', ulHeight+'px');
 
