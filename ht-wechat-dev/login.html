@@ -35,6 +35,7 @@
             <input id="login-pwd" type="password" class="myinput" placeholder="密码">
         </div>
         <a href="javascript:;" class="mydonebtn" onclick="loginBtnClick()">登录</a>
+        <p id="error-hint" class="login-error-hint" style="display: none">您输入的密码或账户不正确</p>
         <!--底部注册 找回密码按钮的容器-->
         <div class="smallbtns-container">
             <a id="regbtn" class="mysmallbtn" href="register.html">注册
@@ -44,6 +45,7 @@
     </div>
 
     <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
     <script src="js/sha1.js"></script>
     <script src="js/base.js"></script>
     <script>
@@ -56,6 +58,17 @@
                 client_version: 0,
             }, function (data) {
                 console.log(data);
+                if (data.c != 200) {
+
+                    var $errorHint = $('#error-hint');
+
+                    $errorHint.css('display', 'block').hide();
+                    $errorHint.html(data.h);
+                    $errorHint.show(100);
+                    return true;
+                }
+                $.cookie('session_key', data.p.session_key);
+                $.cookie('login_uid', data.p.login_uid);
             });
         }
 
