@@ -19,7 +19,8 @@
         <p class="scan-title">扫描身份证正反面照片</p>
         <div class="clearfix">
             <div class="small-box-container">
-                <div class="small-box top-left">
+                <input id="file-front" type="file" name="" accept="image/*" capture="camera" style="display: none">
+                <div class="small-box top-left" onclick="$(this).prev().click()">
                     <div class="hint-container">
                         <img src="imgs/icon-card-front.png" alt="" width="37" height="27">
                         <p>身份证正面</p>
@@ -27,7 +28,8 @@
                 </div>
             </div>
             <div class="small-box-container">
-                <div class="small-box top-right">
+                <input id="file-back" type="file" accept="image/*" capture="camera" style="display: none">
+                <div class="small-box top-right" onclick="$(this).prev().click()">
                     <div class="hint-container">
                         <img src="imgs/icon-card-reverse.png" alt="" width="37" height="27">
                         <p>身份证反面</p>
@@ -36,7 +38,8 @@
             </div>
         </div>
         <p class="scan-title">拍摄手持身份证照片</p>
-        <div class="big-box">
+        <input id="file-hold" type="file" accept="image/*" capture="camera" style="display: none">
+        <div class="big-box" onclick="$(this).prev().click()">
             <div class="hint-container">
                 <img src="imgs/icon-card-full.png" alt="" width="36" height="38">
                 <p>身份证反面</p>
@@ -54,7 +57,40 @@
     </div>
 
     <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/base.js"></script>
     <script>
+
+        $('#file-front').on('change',function () {
+            var $topLeftContainer = $('.small-box-container .top-left');
+            var objUrl = getObjectURL(this.files[0]);
+            if (objUrl) {
+                $topLeftContainer.empty();
+                var img = '<img class="small-pic" src="'+objUrl+'" />'
+                $topLeftContainer.append(img);
+            }
+        });
+
+        $('#file-back').on('change',function () {
+            var $toprightContainer = $('.small-box-container .top-right');
+            var objUrl = getObjectURL(this.files[0]);
+            if (objUrl) {
+                $toprightContainer.empty();
+                var img = '<img class="small-pic" src="'+objUrl+'" />'
+                $toprightContainer.append(img);
+            }
+        });
+
+        $('#file-hold').on('change',function () {
+            var $bottomContainer = $('.big-box');
+            var objUrl = getObjectURL(this.files[0]);
+            if (objUrl) {
+
+                $('.big-box .hint-container').remove();
+                var img = '<img class="small-pic" src="'+objUrl+'" />'
+                $bottomContainer.append(img);
+            }
+        });
+
         function clickServiceBtn() {
             alert('点击客服电话');
         };
