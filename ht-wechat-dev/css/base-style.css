@@ -41,6 +41,7 @@ input, textarea {
     resize: none; /*不让他伸缩*/
     outline: none; /*清除默认显示选中框效果*/
     -webkit-appearance: none; /*清除有些输入框的默认的立体效果*/
+    color: #535353;
 }
 
 ::-webkit-input-placeholder {
