@@ -75,10 +75,13 @@
             $this.css('backgroundColor','#f3d33d');
 
             // 弹出提示框
-            var $sheetBg = $('<div class="sheet-bg"></div>');
-            $('body').append($sheetBg);
+            var $sheetView = $('<div class="sheet-view"></div>');
+            $('body').append($sheetView);
+
+            var $sheetBg = $('<div class="sheet-bg" onclick="clickSheetBg()"></div>');
             var $sheetContainer = $('<div class="sheet-container"></div>');
-            $sheetBg.append($sheetContainer);
+
+            $sheetView.append($sheetBg).append($sheetContainer);
 
             var $headerContainer = $('<div class="header-container"></div>');
             $sheetContainer.append($headerContainer);
@@ -89,16 +92,34 @@
 
             $headerContainer.append($title).append($p1).append($p2);
 
-            var $a1 = $('<a class="border-top" href="javascript:;">拨打<span>10086</span>修改</a>');
+            var $a1 = $('<a onclick="clickTelBtn()" class="border-top" href="javascript:;">拨打<span>10086</span>修改</a>');
             var $a2 = $('<a class="border-top" href="javascript:;">发送短信修改</a>');
             var $cancelBtn = $('<a class="btn-cancel" href="javascript:;">关闭</a>');
 
             $sheetContainer.append($a1).append($a2).append($cancelBtn);
-            $sheetBg.css('display', 'none');
+            $sheetView.css('display', 'none');
 
             $sheetBg.addClass('opacity-show');
             $sheetContainer.addClass('slideup');
-            $sheetBg.css('display', 'block');
+            $sheetView.css('display', 'block');
+        }
+
+        function clickSheetBg() {
+            var $sheetContainer = $('.sheet-container');
+            var $sheetBg = $('.sheet-bg');
+
+            $sheetContainer.removeClass('slideup');
+            $sheetContainer.addClass('slidedown');
+            $sheetBg.removeClass('opacity-show');
+            $sheetBg.addClass('opacity-fade');
+
+            setTimeout(function () {
+                $('.sheet-view').css('display', 'none');
+            }, 200);
+        }
+
+        function clickTelBtn() {
+            alert('点击拨打电话');
         }
 
         function clickServiceBtn() {

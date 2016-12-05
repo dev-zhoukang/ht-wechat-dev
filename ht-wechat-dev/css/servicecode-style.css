@@ -72,40 +72,45 @@
 }
 
 /*发送短信提示视图*/
-.sheet-bg {
+.sheet-view {
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,.4);
     position: fixed;
     top: 0;
     left: 0;
     z-index: 999;
 }
 
-.sheet-bg .sheet-container {
+.sheet-view .sheet-bg {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.4);
+}
+
+.sheet-view .sheet-container {
     position: fixed;
     bottom: 0;
     left: 0;
 }
 
-.sheet-bg .sheet-container .header-container {
+.sheet-view .sheet-container .header-container {
     background-color: #fff;
     padding-bottom: 15px;
 }
 
-.sheet-bg .sheet-container .header-container h2 {
+.sheet-view .sheet-container .header-container h2 {
     text-align: center;
     font-size: 15px;
     color: #f3d33d;
     line-height: 50px;
 }
 
-.sheet-bg .sheet-container .header-container p {
+.sheet-view .sheet-container .header-container p {
     padding: 0 25px;
     line-height: 20px;
 }
 
-.sheet-bg .sheet-container a {
+.sheet-view .sheet-container a {
     display: block;
     text-align: center;
     width: 100%;
@@ -114,10 +119,10 @@
     background-color: #fff;
 }
 
-.sheet-bg .sheet-container a span {
+.sheet-view .sheet-container a span {
     color: #f3d33d;
 }
 
-.sheet-bg .sheet-container .btn-cancel {
+.sheet-view .sheet-container .btn-cancel {
     margin-top: 6px;
 }
