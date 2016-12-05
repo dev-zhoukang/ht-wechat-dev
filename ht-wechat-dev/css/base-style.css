@@ -88,7 +88,7 @@ input, textarea {
 
 .loan-row-container .loan-input {
     font-size: 13px;
-    display: inline-block;
+    display: block;
     color: #bbbbbb;
     line-height: 20px;
     width: 100%;
