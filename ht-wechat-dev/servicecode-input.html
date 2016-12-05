@@ -40,6 +40,19 @@
         </div>
     </div>
 
+    <!--<div class="sheet-bg">-->
+        <!--<div class="sheet-container">-->
+            <!--<div class="header-container">-->
+                <!--<h2>中国移动</h2>-->
+                <!--<p>1. 拨打10086, 转4转1可以修改</p>-->
+                <!--<p>2. 编辑短信CZMM(空格)身份生号码至10086进行密码重置编辑短信CZMM(空格)身份生号码至10086进行密码重置</p>-->
+            <!--</div>-->
+            <!--<a class="border-top" href="javascript:;">拨打<span>10086</span>修改</a>-->
+            <!--<a class="border-top" href="javascript:;">发送短信修改</a>-->
+            <!--<a class="btn-cancel" href="javascript:;">关闭</a>-->
+        <!--</div>-->
+    <!--</div>-->
+
     <!--底部客服和按钮-->
     <div class="bottom-container">
         <div class="service-container">
@@ -53,14 +66,39 @@
     <script src="js/jquery-1.11.1.min.js"></script>
     <script>
 
+        $(function () {
+            $('.sheet-container').addClass('slideup');
+        });
         <!--点击运营商按钮-->
         function clickOperatorBtn($this) {
-
             $('.btn-box a').css('backgroundColor', '#F4F4F6');
+            $this.css('backgroundColor','#f3d33d');
 
-            $this.css({
-                backgroundColor: '#f3d33d',
-            });
+            // 弹出提示框
+            var $sheetBg = $('<div class="sheet-bg"></div>');
+            $('body').append($sheetBg);
+            var $sheetContainer = $('<div class="sheet-container"></div>');
+            $sheetBg.append($sheetContainer);
+
+            var $headerContainer = $('<div class="header-container"></div>');
+            $sheetContainer.append($headerContainer);
+
+            var $title = $('<h2>中国移动</h2>');
+            var $p1 = $('<p>1. 拨打10086, 转4转1可以修改</p>');
+            var $p2 = $('<p>2. 编辑短信CZMM(空格)身份生号码至10086进行密码重置编辑短信CZMM(空格)身份生号码至10086进行密码重置</p>');
+
+            $headerContainer.append($title).append($p1).append($p2);
+
+            var $a1 = $('<a class="border-top" href="javascript:;">拨打<span>10086</span>修改</a>');
+            var $a2 = $('<a class="border-top" href="javascript:;">发送短信修改</a>');
+            var $cancelBtn = $('<a class="btn-cancel" href="javascript:;">关闭</a>');
+
+            $sheetContainer.append($a1).append($a2).append($cancelBtn);
+            $sheetBg.css('display', 'none');
+
+            $sheetBg.addClass('opacity-show');
+            $sheetContainer.addClass('slideup');
+            $sheetBg.css('display', 'block');
         }
 
         function clickServiceBtn() {

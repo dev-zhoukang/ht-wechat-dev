@@ -156,3 +156,61 @@ input, textarea {
 .bottom-btn:hover {
     background-color: #f3d33d;
 }
+
+/*========动画=========*/
+@-webkit-keyframes slideup {
+    0% {
+        transform: translateY(1000px);
+        -webkit-transform: translateY(1000px);
+    }
+    100% {
+        transform: none;
+        -webkit-transform: none;
+    }
+}
+
+.slideup {
+    animation: slideup .25s ease;
+}
+
+@-webkit-keyframes opacity-show {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.opacity-show {
+    animation: opacity-show .25s ease;
+}
+
+/*反向动画*/
+@-webkit-keyframes slidedown {
+    0% {
+        transform: none;
+        -webkit-transform: none;
+    }
+    100% {
+        transform: translateY(1000px);
+        -webkit-transform: translateY(1000px);
+    }
+}
+
+.slidedown {
+    animation: slidedown .25s ease;
+}
+
+@-webkit-keyframes opacity-fade {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.opacity-fade {
+    animation: opacity-fade .25s ease;
+}
