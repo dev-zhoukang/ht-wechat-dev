@@ -19,10 +19,11 @@ header em {
 }
 
 main {
-    background: red;
+    overflow: hidden;
     width: 100%;
     height: auto;
-    padding: 0 15px;
+    padding: 0 15px 100px 15px;
+    position: relative;
 }
 
 main .item-container {
