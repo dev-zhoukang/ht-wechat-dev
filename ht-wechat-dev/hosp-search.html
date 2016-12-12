@@ -45,6 +45,10 @@
             }
         }
 
+        function clickHosp($this) {
+            location.href = 'hosp-detail.html';
+        }
+
         function loadMoreBtnClick() {
             page ++;
             $.ajax({
@@ -64,7 +68,7 @@
                     for (var i = 0; i < list.length; i ++) {
                         var item = list[i];
 
-                        var $li = $('<li class="border-bottom"></li>'),
+                        var $li = $('<li id="'+ item.id +'" class="border-bottom" onclick="clickHosp($(this))"></li>'),
                             $title = $('<p class="text-title">'+ item.hostpitalName +'</p>'),
                             $address = $('<p class="text-address">'+ item.address +'</p>');
                         $li.append($title).append($address);
@@ -106,7 +110,7 @@
                     for (var i = 0; i < list.length; i ++) {
                         var item = list[i];
 
-                        var $li = $('<li id="'+ i +'" class="border-bottom"></li>'),
+                        var $li = $('<li id="'+ item.id +'" class="border-bottom" onclick="clickHosp($(this))"></li>'),
                             $title = $('<p class="text-title">'+ item.hostpitalName +'</p>'),
                             $address = $('<p class="text-address">'+ item.address +'</p>');
                         $li.append($title).append($address);

@@ -96,7 +96,7 @@ header ul li.cur {
     width: 100%;
     height: 64px;
     position: relative;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .search-container .input-container {
@@ -109,6 +109,7 @@ header ul li.cur {
     height: 44px;
     width: 100%;
     padding: 0 10px;
+    font-size: 14px;
 
     border-radius: 7px;
     border: 1px solid #e0e0e0;
@@ -150,7 +151,7 @@ ul li p {
 
 ul li p.text-title {
     line-height: 20px;
-    font-size: 15px;
+    font-size: 14px;
     color: #535353;
 }
 
