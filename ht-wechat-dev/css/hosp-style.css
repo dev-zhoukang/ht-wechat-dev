@@ -1,5 +1,5 @@
 
-/************************ 医院详情页面 ***************************/
+/************************ 医院详情页面 和 搜索 ***************************/
 
 /*头部轮播图*/
 header {
@@ -96,6 +96,7 @@ header ul li.cur {
     width: 100%;
     height: 64px;
     position: relative;
+    font-size: 15px;
 }
 
 .search-container .input-container {
@@ -149,14 +150,25 @@ ul li p {
 
 ul li p.text-title {
     line-height: 20px;
-    font-size: 14px;
+    font-size: 15px;
     color: #535353;
 }
 
 ul li p.text-address {
     line-height: 20px;
-    font-size: 11px;
+    font-size: 13px;
     color: #aaaaaa;
+}
+
+/*加载更多*/
+.loadMore {
+    display: block;
+    height: 44px;
+    text-align: center;
+    line-height: 44px;
+    background: #fadb2c;
+    border-radius: 7px;
+    margin: 0 10px 20px 10px;
 }
 
 
