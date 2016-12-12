@@ -46,7 +46,8 @@
         }
 
         function clickHosp($this) {
-            location.href = 'hosp-detail.html';
+            var hid = $this.attr('id');
+            location.href = 'hosp-detail.html?hid='+ hid +'';
         }
 
         function loadMoreBtnClick() {

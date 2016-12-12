@@ -31,12 +31,16 @@ header .img-container-group .img-container>div {
     overflow: hidden;
 }
 
+header .img-container-group .img-container>div img {
+    width: 100%;
+}
+
 header ul {
     width: 100%;
     height: 25px;
 
     position: absolute;
-    bottom: 0;
+    bottom: 7px;
     left: 0;
     padding-top: 4px;
     padding-left: 10px;
@@ -44,9 +48,9 @@ header ul {
 
 header ul li {
     display: inline-block;
-    width: 12px;
-    height: 12px;
-    border-radius: 6px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
     background: #ccc;
 
     margin-left: 7px;
