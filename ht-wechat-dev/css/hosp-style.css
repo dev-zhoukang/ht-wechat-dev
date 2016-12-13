@@ -94,12 +94,23 @@ header ul li.cur {
 }
 
 /************************ 医院搜索页面 ***************************/
+.hosp-search-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../imgs/bg-hosp-search.png") no-repeat top center / 100% 100%;
+    z-index: 0;
+}
+
 .search-container {
     margin-top: 10px;
     width: 100%;
     height: 64px;
     position: relative;
     font-size: 14px;
+    z-index: 10;
 }
 
 .search-container .input-container {
@@ -137,6 +148,8 @@ header ul li.cur {
 
 ul.list-container {
     margin: 0 10px;
+    position: relative;
+    z-index: 10;
 }
 
 ul.list-container li {
@@ -173,6 +186,8 @@ ul.list-container li p.text-address {
     background: #fadb2c;
     border-radius: 7px;
     margin: 0 10px 20px 10px;
+    position: relative;
+    z-index: 10;
 }
 
 
