@@ -104,6 +104,7 @@
                             $address = $('<p class="text-address">'+ item.address +'</p>');
                     $li.append($title).append($address);
                     $('#list-container').append($li);
+                    matchKeyword();
                 }
                 setupLoadMoreBtn(list.length);
             },
@@ -113,6 +114,13 @@
         });
     }
 
+    // 匹配出关键字并高亮
+    function matchKeyword(){
+        var container = document.getElementById('list-container');
+        var innerHtml = container.innerHTML;
+        var reg = '/'+keyword+'/g';
+        container.innerHTML = innerHtml.replace(eval(reg), '<span class="highlight">'+ keyword +'</span>');
+    }
 
 </script>
 
