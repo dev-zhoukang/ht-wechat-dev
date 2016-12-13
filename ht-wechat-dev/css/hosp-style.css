@@ -36,20 +36,20 @@ header .img-container-group .img-container>div img {
 }
 
 header ul {
-    width: 100%;
     height: 25px;
 
     position: absolute;
     bottom: 7px;
-    left: 0;
-    padding-top: 4px;
-    padding-left: 10px;
+    left: 10px;
+    padding-top: 5px;
+    padding-right: 7px;
+    background: red;
 }
 
 header ul li {
     display: inline-block;
-    width: 5px;
-    height: 5px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     background: #ccc;
 
@@ -136,30 +136,30 @@ header ul li.cur {
 
 /*展示医院*/
 
-ul {
+ul.list-container {
     margin: 0 10px;
 }
 
-ul li {
+ul.list-container li {
     width: 100%;
     height: 65px;
     padding: 10px;
 }
 
-ul li p {
+ul.list-container li p {
     display: block;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 }
 
-ul li p.text-title {
+ul.list-container li p.text-title {
     line-height: 20px;
     font-size: 14px;
     color: #535353;
 }
 
-ul li p.text-address {
+ul.list-container li p.text-address {
     line-height: 20px;
     font-size: 13px;
     color: #aaaaaa;

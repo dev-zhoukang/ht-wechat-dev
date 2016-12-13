@@ -134,6 +134,9 @@
             $pageControl.append($li);
         });
 
+        var pageControlLeft = ($('body').width() - $pageControl.width()) * 0.5;
+        $pageControl.css('left', ''+ pageControlLeft +'');
+
         var bullets = $('#pagecontrol li');
         Swipe($('#myswipe').get(0), {
             auto: 1500,
