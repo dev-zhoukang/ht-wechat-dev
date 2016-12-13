@@ -124,7 +124,6 @@
         var imageArray = imageStr.split(',');
         $.each(imageArray, function (index, obj) {
             var imgUrl = prefix + obj;
-            console.log('=======>' + imgUrl);
 
             var $imgDiv = $('<div><a href="javascript:;"><img src="'+ imgUrl +'" alt=""></a></div>');
             $imageContainer.append($imgDiv);
@@ -135,11 +134,11 @@
         });
 
         var pageControlLeft = ($('body').width() - $pageControl.width()) * 0.5;
-        $pageControl.css('left', ''+ pageControlLeft +'');
+        $pageControl.css('left', pageControlLeft);
 
         var bullets = $('#pagecontrol li');
         Swipe($('#myswipe').get(0), {
-            auto: 1500,
+            auto: -1,
             continuous: true,
             disableScroll: false,
             callback: function (position) {
