@@ -11,6 +11,7 @@
     <meta content="email=no" name="format-detection">
     <link rel="stylesheet" href="css/base-style.css">
     <link rel="stylesheet" href="css/hosp-style.css">
+    <script src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"></script>
     <title>医院搜索页-zk</title>
 </head>
 <body>
@@ -25,7 +26,7 @@
     <div class="input-container">
         <input id="input-search" type="text" name="search" placeholder="请输入要搜索的医院名称">
     </div>
-    <a href="javascript:;" onclick="startSearch()">搜索</a>
+    <a href="javascript:;" onclick="clickSearchBtn()">搜索</a>
 </div>
 
 <!--展示内容-->
@@ -37,7 +38,11 @@
 <script src="js/jquery.cookie.js"></script>
 <script src="js/base.js"></script>
 <script>
-    var keyword = '', page = 0;
+
+    var city = remote_ip_info['city'];
+    var keyword = city, page = 0;
+    // 首次进入 根据定位展示附近医院
+    requestData();
 
     function setupLoadMoreBtn(listLength) {
         if (listLength == 10) {
@@ -59,6 +64,24 @@
 
     function loadMoreBtnClick() {
         page ++;
+        requestData();
+    }
+
+    function clickSearchBtn() {
+        page = 0;
+        $('#list-container').empty();
+
+        var keywordStr = $('#input-search').val();
+        if (!keywordStr) {
+            return;
+        }
+        console.log('输入的关键字是:' + keywordStr);
+        keyword = keywordStr;
+
+        requestData();
+    }
+
+    function requestData() {
         $.ajax({
             url: baseUrl + 'wx/getHospitalList',
             type: 'POST',
@@ -77,50 +100,8 @@
                     var item = list[i];
 
                     var $li = $('<li id="'+ item.id +'" class="border-bottom" onclick="clickHosp($(this))"></li>'),
-                        $title = $('<p class="text-title">'+ item.hostpitalName +'</p>'),
-                        $address = $('<p class="text-address">'+ item.address +'</p>');
-                    $li.append($title).append($address);
-                    $('#list-container').append($li);
-                }
-
-                setupLoadMoreBtn(list.length);
-            },
-            error: function () {
-            }
-        })
-    }
-
-    function startSearch() {
-        page = 0;
-
-        var keywordStr = $('#input-search').val();
-        if (!keywordStr) {
-            return;
-        }
-        console.log('输入的关键字是:' + keywordStr);
-        keyword = keywordStr;
-
-        $.ajax({
-            url: baseUrl + 'wx/getHospitalList',
-            type: 'POST',
-            data: {
-                keyword: keywordStr,
-                pageIndex: 0,
-                device_id: '0',
-                platform: '2',
-                client_version: '0',
-            },
-            success: function (data) {
-                console.log(data);
-                $('#list-container').empty();
-                var list = data.p;
-
-                for (var i = 0; i < list.length; i ++) {
-                    var item = list[i];
-
-                    var $li = $('<li id="'+ item.id +'" class="border-bottom" onclick="clickHosp($(this))"></li>'),
-                        $title = $('<p class="text-title">'+ item.hostpitalName +'</p>'),
-                        $address = $('<p class="text-address">'+ item.address +'</p>');
+                            $title = $('<p class="text-title">'+ item.hostpitalName +'</p>'),
+                            $address = $('<p class="text-address">'+ item.address +'</p>');
                     $li.append($title).append($address);
                     $('#list-container').append($li);
                 }
@@ -131,6 +112,7 @@
             }
         });
     }
+
 
 </script>
 
