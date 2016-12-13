@@ -24,9 +24,6 @@
 <header>
     <div class="img-container-group" id="myswipe">
         <div id="img-container" class="img-container">
-            <!--<div><a href="javascript:;"><img src="imgs/banner0.jpg" alt=""></a></div>-->
-            <!--<div><a href="javascript:;"><img src="imgs/banner1.jpg" alt=""></a></div>-->
-            <!--<div><a href="javascript:;"><img src="imgs/banner2.jpg" alt=""></a></div>-->
         </div>
     </div>
     <ul id="pagecontrol">
@@ -78,14 +75,12 @@
     <a href="javascript:;" onclick="clickBottomBtn()" class="bottom-btn">是这家医院</a>
 </div>
 
-<!--<div style="background: rgba(255, 255, 255, .95); position: fixed; width: 100%; height: 100%; top: 0; left: 0;">-->
-    <!--<img src="imgs/loding.gif" alt="" style="position: absolute; width: 90px; height: 90px; top: 50%; left: 50%; margin-left: -45px; margin-top: -55px">-->
-<!--</div>-->
-
 <script>
 
     loading.show();
     var hid = getQueryStringArgs().hid;
+    var prefix = 'http://walnut-10023356.file.myqcloud.com/';
+
     requestData();
 
     function requestData() {
@@ -100,23 +95,7 @@
             },
             success: function (data) {
                 console.log(data);
-                $('#hosp-name').html(data.p.name);
-                $('#hosp-address').html(data.p.address);
-                $('#hosp-tel').html(data.p.contact);
-                $('#hosp-desc').html(data.p.introduction);
-
-                var prefix = 'http://walnut-10023356.file.myqcloud.com/';
-
-                var imagesStr = data.p.images;
-                var imageArray = imagesStr.split(',');
-
-                $('#img-container').empty();
-                for (var i = 0; i < imageArray.length; i ++) {
-                    var imgUrl = prefix + imageArray[i];
-                    console.log('=======>' + imgUrl);
-                    var imgDiv = '<div><a href="javascript:;"><img src="'+ imgUrl +'" alt=""></a></div>';
-                    $('#img-container').append(imgDiv);
-                }
+                updateUI(data);
 
                 loading.hide();
             },
@@ -126,6 +105,50 @@
         })
     }
 
+    function updateUI(data) {
+        $('#hosp-name').html(data.p.name);
+        $('#hosp-address').html(data.p.address);
+        $('#hosp-tel').html(data.p.contact);
+        $('#hosp-desc').html(data.p.introduction);
+
+        updateHeader(data.p.images);
+    }
+
+    function updateHeader(imageStr) {
+        var $pageControl = $('#pagecontrol');
+        var $imageContainer = $('#img-container');
+
+        $pageControl.empty();
+        $imageContainer.empty();
+
+        var imageArray = imageStr.split(',');
+        $.each(imageArray, function (index, obj) {
+            var imgUrl = prefix + obj;
+            console.log('=======>' + imgUrl);
+
+            var $imgDiv = $('<div><a href="javascript:;"><img src="'+ imgUrl +'" alt=""></a></div>');
+            $imageContainer.append($imgDiv);
+
+            var $li = $('<li></li>');
+            index == 0 && $li.addClass('cur');
+            $pageControl.append($li);
+        });
+
+        var bullets = $('#pagecontrol li');
+        Swipe($('#myswipe').get(0), {
+            auto: 1500,
+            continuous: true,
+            disableScroll: false,
+            callback: function (position) {
+                var i = bullets.length;
+                while (i --) {
+                    bullets[i].className = ' ';
+                }
+                bullets[position].className = 'cur';
+            }
+        });
+    }
+
     function clickServiceBtn () {
         alert('拨打客服');
     }
@@ -133,20 +156,7 @@
     function clickBottomBtn() {
         alert('点击完成');
     }
-    <!--轮播图-->
-    var bullets = $('#pagecontrol li');
-    Swipe($('#myswipe').get(0), {
-        auto: 1500,
-        continuous: true,
-        disableScroll: false,
-        callback: function (position) {
-            var i = bullets.length;
-            while (i --) {
-                bullets[i].className = ' ';
-            }
-            bullets[position].className = 'cur';
-        }
-    });
+
 </script>
 
 </body>
