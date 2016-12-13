@@ -66,7 +66,7 @@ function getQueryStringArgs() {
 
 // loading图
 var loading = {
-    $loadingContainer: $('<div style="background: rgba(255, 255, 255, .95); position: fixed; width: 100%; height: 100%; top: 0; left: 0;">'),
+    $loadingContainer: $('<div style="background: rgba(255, 255, 255, .95); position: fixed; width: 100%; height: 100%; top: 0; left: 0;"></div>'),
     $loadImg: $('<img src="imgs/loding.gif" alt="" style="position: absolute; width: 90px; height: 90px; top: 50%; left: 50%; margin-left: -45px; margin-top: -55px">'),
     show: function () {
         this.$loadingContainer.append(this.$loadImg);
