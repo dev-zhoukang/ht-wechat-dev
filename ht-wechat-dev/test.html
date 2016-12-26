@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta content="email=no" name="format-detection">
+    <title>弹窗</title>
+    <link rel="stylesheet" href="css/base-style.css">
+
+    <style>
+        .zk-alert-wrapper {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        .zk-alert-wrapper .alert-bg {
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.2);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .zk-alert-wrapper .alert-view {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 220px;
+            height: auto;
+            margin: -90px 0 0 -110px;
+        }
+        .zk-alert-wrapper .alert-view .text-view {
+            padding: 20px 10px;
+            color: #535353;
+            background: #fff;
+            border-radius: 7px;
+        }
+        .zk-alert-wrapper .alert-view .text-view .text-title {
+            font-size: 15px;
+            text-align: center;
+            line-height: 30px;
+          }
+        .zk-alert-wrapper .alert-view .text-view .text-content {
+            font-size: 14px;
+            text-align: center;
+            line-height: 18px;
+        }
+        .zk-alert-wrapper .alert-view .btn-view {
+            width: 100%;
+            height: 45px;
+            margin-top: 6px;
+        }
+        .zk-alert-wrapper .alert-view .btn-view a {
+            text-decoration: none;
+            color: #535353;
+            line-height: 45px;
+            font-size: 14px;
+            width: 49%;
+            height: 45px;
+            text-align: center;
+            border-radius: 7px;
+        }
+        .zk-alert-wrapper .alert-view .btn-view a.left {
+            float: left;
+            display: block;
+            background: #fadb2c;
+        }
+        .zk-alert-wrapper .alert-view .btn-view a.right {
+            float: right;
+            display: block;
+            background: #eee;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="zk-alert-wrapper">
+    <div class="alert-bg"></div>
+    <div class="alert-view">
+        <div class="text-view">
+            <div class="text-title">我是标题我是标题</div>
+            <div class="text-content">我是弹窗的内容我是弹窗的内容我是弹窗的内容我是弹窗的内容</div>
+        </div>
+        <div class="btn-view clearfix">
+            <a class="left" href="javascript:;">好的</a>
+            <a class="right" href="javascript:;">取消</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
