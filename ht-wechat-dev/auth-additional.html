@@ -23,126 +23,11 @@
     </header>
 
     <main>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
-        <div class="item-container">
-            <div class="img-container">
-                <img src="imgs/icon-header-bg.png" alt="">
-            </div>
-        </div>
+        <!--<div class="item-container">-->
+            <!--<div class="img-container">-->
+                <!--<img src="imgs/icon-header-bg.png" alt="">-->
+            <!--</div>-->
+        <!--</div>-->
 
         <div class="item-container">
             <div class="img-container" onclick="clickAddImgBtn()">
@@ -162,19 +47,30 @@
     </div>
 
     <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/base.js"></script>
     <script>
 
         function clickAddImgBtn() {
-            alert('点击添加图片');
+            var $input = $('<input type="file" accept="image/*" capture="camera" />');
+            $input.click();
+            $input.get(0).addEventListener('change', function () {
+                var $itemContainer = $('<div class="item-container"></div>');
+                var $imageContainer = $('<div class="img-container"></div>');
+                var imageSrc = getObjectURL(this.files[0]);
+                var $image = $('<img />').attr('src', imageSrc);
+                $imageContainer.append($image);
+                $itemContainer.append($imageContainer);
+                $('main').prepend($itemContainer);
+            });
         }
 
         function clickServiceBtn() {
             alert('点击客服电话');
-        };
+        }
 
         function clickBottomBtn() {
             alert('点击完成');
-        };
+        }
 
     </script>
 
