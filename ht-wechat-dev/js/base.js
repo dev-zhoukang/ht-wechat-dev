@@ -76,3 +76,48 @@ var loading = {
         this.$loadingContainer.remove();
     }
 };
+
+//注意: 依赖base.css样式 和 jQuery框架
+var zkUploadHint = {
+    $container: $('<div class="upload-container"></div>').css('opacity', 0),
+    $clock: $('<div class="clock"></div>'),
+    $progressBar: $('<div class="progress-bar"></div>'),
+    $hintTop: $('<p class="hint-top">资料提交中...</p>'),
+    $hintBottom: $('<p class="hint-bottom">公共WIFi网络速度可能较慢<br />建议您使用4G网络上传</p>'),
+    show: function () {
+        var $contentView = $('<div class="content-view"></div>'),
+            $progressContainer = $('<div class="progress-container"></div>');
+        $progressContainer.append(this.$progressBar);
+        $contentView.append(this.$clock).append(this.$hintTop).append($progressContainer).append(this.$hintBottom);
+        this.$container.append($contentView);
+        $('body').append(this.$container);
+        this.$container.animate({
+            'opacity': 1,
+        }, 200);
+    },
+    error: function () {
+        this.$clock.css({
+            'background': 'url("../imgs/upload-error.png") no-repeat top center / 35px 35px'
+        });
+        this.$progressBar.css('background', 'red');
+    },
+    hide: function () {
+        var $this = this;
+        this.$container.animate({
+            'opacity': 0
+        }, 250, function () {
+            $this.$container.remove();
+        })
+    }
+};
+
+// <div class="upload-container">
+//     <div class="content-view">
+//     <div class="clock"></div>
+//     <p class="hint-top">资料提交中...</p>
+//     <div class="progress-container">
+//     <div class="progress-bar"></div>
+//     </div>
+//     <p class="hint-bottom">公共WIFi网络速度可能较慢<br />建议您使用4G网络上传</p>
+//     </div>
+//     </div>

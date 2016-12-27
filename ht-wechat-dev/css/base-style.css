@@ -214,3 +214,49 @@ input, textarea {
 .opacity-fade {
     animation: opacity-fade .25s ease;
 }
+
+/*上传资料的的提示页面*/
+.upload-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+.upload-container .content-view {
+    width: 250px;
+    height: 150px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -90px 0 0 -125px;
+}
+.upload-container .content-view .clock {
+    width: 60px;
+    height: 45px;
+    margin: 0 auto;
+    background: url("../imgs/upload-wait.png") no-repeat top center / 36px 35px;
+}
+.upload-container .content-view p.hint-top {
+    text-align: center;
+    font-size: 15px;
+}
+.upload-container .content-view .progress-container {
+    width: 200px;
+    height: 15px;
+    margin: 10px auto;
+    border: 1px solid #535353;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.upload-container .content-view .progress-container .progress-bar {
+    width: 0;
+    height: 100%;
+    background: #fadb2c;
+}
+.upload-container .content-view p.hint-bottom {
+    text-align: center;
+    line-height: 18px;
+    font-size: 13px;
+}

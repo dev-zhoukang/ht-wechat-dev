@@ -46,10 +46,51 @@
         <a href="javascript:;" onclick="clickBottomBtn()" class="bottom-btn">完成</a>
     </div>
 
+    <!--<div class="upload-container">-->
+        <!--<div class="content-view">-->
+            <!--<div class="clock"></div>-->
+            <!--<p class="hint-top">资料提交中...</p>-->
+            <!--<div class="progress-container">-->
+                <!--<div class="progress-bar"></div>-->
+            <!--</div>-->
+            <!--<p class="hint-bottom">公共WIFi网络速度可能较慢<br />建议您使用4G网络上传</p>-->
+        <!--</div>-->
+    <!--</div>-->
+
     <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/jquery.cookie.js"></script>
     <script src="js/base.js"></script>
     <script>
+
+        $().ready(function () {
+
+            zkUploadHint.show();
+
+            var progress = 0,
+                    finished = false;
+            var timer = setInterval(function () {
+                progress <= 80 && (progress += 3);
+                if (!finished) {
+                    zkUploadHint.$progressBar.animate({
+                        'width': progress + '%'
+                    }, 400);
+                }
+                else {
+                    zkUploadHint.$progressBar.animate({
+                        'width': '100%'
+                    }, 100, function () {
+                        zkUploadHint.hide();
+                        clearInterval(timer);
+                    });
+                }
+            }, 200);
+
+            // 模拟成功与否状态
+            setTimeout(function () {
+                zkUploadHint.error();
+//                finished = true;
+            }, 8000);
+        });
 
         function clickAddImgBtn() {
             var $input = $('<input type="file" accept="image/*" capture="camera" />');
