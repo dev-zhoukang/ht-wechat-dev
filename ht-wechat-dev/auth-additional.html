@@ -47,6 +47,7 @@
     </div>
 
     <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
     <script src="js/base.js"></script>
     <script>
 
@@ -54,6 +55,9 @@
             var $input = $('<input type="file" accept="image/*" capture="camera" />');
             $input.click();
             $input.get(0).addEventListener('change', function () {
+
+                start();
+
                 var $itemContainer = $('<div class="item-container"></div>');
                 var $imageContainer = $('<div class="img-container"></div>');
                 var imageSrc = getObjectURL(this.files[0]);
@@ -61,6 +65,35 @@
                 $imageContainer.append($image);
                 $itemContainer.append($imageContainer);
                 $('main').prepend($itemContainer);
+            });
+        }
+
+        // 开始上传图片工作
+        function start() {
+            // 请求签名, 成功之后再上传
+            requestSign(function (response) {
+                alert(JSON.stringify(response));
+            });
+        }
+        function requestSign(completeHandle) {
+            var loginUid = $.cookie('login_uid'),
+                    sessionKey = $.cookie('session_key');
+            $.ajax({
+                url: baseUrl + 'credit/queryCosSign',
+                type: 'POST',
+                data: {
+                    login_uid: loginUid,
+                    session_key: sessionKey,
+                    device_id: '0',
+                    platform: '1',
+                    client_version: 0,
+                },
+                success: function (response) {
+                    completeHandle(response);
+                },
+                error: function (response) {
+                    alert('获取签名出错' + JSON.stringify(response));
+                }
             });
         }
 

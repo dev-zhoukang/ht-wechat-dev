@@ -3,7 +3,7 @@
  */
 
 //接口IP地址和端口
-var baseUrl = 'http://119.29.77.36:8001/api/';
+var baseUrl = 'http://wx.hoootao.com/api/';
 
 // var domainConfig = {};
 // if (!$.cookie('downloadDomain')) {

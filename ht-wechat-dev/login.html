@@ -38,8 +38,8 @@
         <p id="error-hint" class="login-error-hint" style="display: none">您输入的密码或账户不正确</p>
         <!--底部注册 找回密码按钮的容器-->
         <div class="smallbtns-container">
-            <a id="regbtn" class="mysmallbtn" href="register.html">注册
-            <a id="forgetbtn" class="mysmallbtn" href="forgetpwd.html">找回密码
+            <a id="regbtn" class="mysmallbtn" href="register.html">注册</a>
+            <a id="forgetbtn" class="mysmallbtn" href="forgetpwd.html">找回密码</a>
         </div>
 
     </div>
@@ -51,23 +51,31 @@
     <script>
 
         function loginBtnClick() {
-            $.post(baseUrl+'user/login', {
-                account: $('#login-phone').val(),
-                platform: '2',
-                secret: hex_sha1($('#login-pwd').val()),
-                client_version: 0,
-            }, function (data) {
-                console.log(data);
-                if (data.c != 200) {
 
-                    showErrorHint();
+            $.ajax({
+                url: baseUrl + 'user/login',
+                type: 'POST',
+                data: {
+                    account: $('#login-phone').val(),
+                    platform: '1',
+                    secret: hex_sha1($('#login-pwd').val()),
+                    client_version: 0,
+                },
+                success: function (response) {
+                    if (response.c != 200) {
 
-                    return true;
+                        showErrorHint();
+                        alert('非200');
+                        return;
+                    }
+                    hideErrorHint();
+                    $.cookie('session_key', response.p.session_key, { expires: 7 });
+                    $.cookie('login_uid', response.p.login_uid, { expires: 7 });
+                    alert('登录成功');
+                },
+                error: function (response) {
+                    alert('出错');
                 }
-
-                hideErrorHint();
-                $.cookie('session_key', data.p.session_key);
-                $.cookie('login_uid', data.p.login_uid);
             });
         }
 
